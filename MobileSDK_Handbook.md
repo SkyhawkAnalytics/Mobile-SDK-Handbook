@@ -117,7 +117,7 @@ In a follow me mission, the drone is programmed to track and maintain a constant
 
 ##### 2. Hot Point Mission
 
-![](./Images/hotpoint.gif)
+![](./Images/hotPoint.gif)
 
 In a hot point mission, the drone will repeatedly fly circles of a constant radius around a specified point called a Hot Point.
 
