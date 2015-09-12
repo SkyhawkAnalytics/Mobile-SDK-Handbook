@@ -8,19 +8,19 @@ This handbook provides a high level overview of the different components that ma
 
 ### Camera
 
-##### 1. SD Card
+#### 1. SD Card
 
 DJI drones will save photos and videos captured through the camera to the SD card inserted into the camera. Information about the current state of the SD card can be accessed through the camera interface.
 
-##### 2. Playback 
+#### 2. Playback 
 
 Accessing the media files in the SD card require that you switch the camera into a playback mode. There are several different playback modes, each allowing you to view or manipulate the files differently. The camera interface allows you to switch between playback modes, and carry out actions specific to each mode.
 
-##### 3. Current State
+#### 3. Current State
 
 The current state of the camera is monitored through a set of characteristics. Is the camera overheating? Is the camera connected to a PC? Is it currently taking a single photo, or continuous photos? The answers to these and similar questions are found in the camera interface.
 
-##### 4. Settings
+#### 4. Settings
 
 The DJI drones' cameras have a large number of settings to adjust (i.e. shutter speed, ISO, aperture). The camera interface allows you to adjust these settings.
 
@@ -40,11 +40,11 @@ The gimbal is the mechanism that keeps the camera steady while the drone moves, 
 
 The main controller can be used to provide fundamental information about the drone, as well as control core functionality.
 
-##### 1. Current State
+#### 1. Current State
 
 The main controller system state gives crucial information about the current state of the drone, which will allow you to determine its velocity, location, as well as when and where to appropriately land the drone.
 
-##### 2. Return To Home
+#### 2. Return To Home
 
 DJI drones contain a 'Return To Home' functionality, which automatically directs the drone back to home, which is traditionally the point from where the drone has taken off. The main controller includes functions for configuring and using 'Return To Home'.
 
@@ -80,19 +80,19 @@ A class used to store information about an individual media file in the drone's 
 
 Attitude is a vehicle's orientation about its center of mass. You can accurately describe an object's attitude through three characteristics: its pitch, roll and yaw. Controlling both the drone and the gimbal's orientation through the SDK requires that you manipulate these three values:
 
-##### 1. Yaw
+#### 1. Yaw
 
 ![](./Images/yawAxis.gif)
 
 The above diagram shows the drone from above. Yaw measures an object's rotation about the vertical axis. Adjusting the yaw will keep the drone horizontal, but change the direction it is facing.
 
-##### 2. Pitch
+#### 2. Pitch
 
 ![](./Images/pitchAxis.gif)
 
 The above diagram shows the drone from the side. Pitch measures an object's rotation about the lateral axis. Adjusting the pitch will tilt the drone forwards or backwards.
 
-##### 3. Roll
+#### 3. Roll
 
 ![](./Images/rollAxis.gif)
 
@@ -109,19 +109,19 @@ Throttle controls the drone's velocity in the direction of the vertical axis. Wh
 
 Navigation is the umbrella term used to refer to controlling the drone through one of a variety of Navigation Missions.
 
-##### 1. Follow Me Mission
+#### 1. Follow Me Mission
 
 ![](./Images/followMe.gif)
 
 In a follow me mission, the drone is programmed to track and maintain a constant distant relative to some object, such as a person or a moving vehicle. 
 
-##### 2. Hot Point Mission
+#### 2. Hot Point Mission
 
 ![](./Images/hotPoint.gif)
 
 In a hot point mission, the drone will repeatedly fly circles of a constant radius around a specified point called a Hot Point.
 
-##### 3. IOC (Intelligent Orientation Control) Mission
+#### 3. IOC (Intelligent Orientation Control) Mission
 
 An IOC mission allows you to control the drone via an external frame of reference, rather than one relative to its own body. In other words, the orientation of the drone is irrelevant to the direction it moves in.
 IOC has two main modes, Course Lock and Home Lock. 
@@ -134,7 +134,7 @@ IOC has two main modes, Course Lock and Home Lock.
 
 ![](./Images/ioc_homeLock.png)
 
-##### 4. Waypoint Mission
+#### 4. Waypoint Mission
 
 ![](./Images/waypoints.gif)
 
@@ -146,11 +146,11 @@ Flight control is a direct, low level method of controlling the drone. Flight co
 
 ### Callbacks
 
-##### 1. DJI Errors
+#### 1. DJI Errors
 
 Every SDK function you call requires a callback as a parameter, which will be carried out after the drone executes the given command(s). The most common callback takes in a DJIError returned from the drone, which gives simple feedback on the success of the function execution.
 
-##### 2. Other Callbacks
+#### 2. Other Callbacks
 
 It is appropriate for some functions in the SDK to receive more than a DJIError as feedback after the drone has finished execution. It may also be necessary for additional commands to be sent during different stages of execution. For example, the callback for downloading files from the SD card has methods to be carried out during the start, the end, and on during progress updates of the download process. Appropirately, it takes in an int **progress** as well as the expected DJIError object.
 
