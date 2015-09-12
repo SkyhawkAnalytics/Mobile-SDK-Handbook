@@ -32,7 +32,7 @@ The DJI battery interface includes a set of Smart Battery functions, which can b
  
 ### Gimbal
 
-![](./images/gimbal.png)
+![](./Images/gimbal.png)
 
 The gimbal is the mechanism that keeps the camera steady while the drone moves, absorbing shock from vibrations and sudden movements. The gimbal is also responsible for controlling the direction that the camera is pointing in. The camera interface allows you to control and get information about the gimbal.
 	
@@ -82,25 +82,25 @@ Attitude is a vehicle's orientation about its center of mass. You can accurately
 
 ##### 1. Yaw
 
-![](./images/yawAxis.gif)
+![](./Images/yawAxis.gif)
 
 The above diagram shows the drone from above. Yaw measures an object's rotation about the vertical axis. Adjusting the yaw will keep the drone horizontal, but change the direction it is facing.
 
 ##### 2. Pitch
 
-![](./images/pitchAxis.gif)
+![](./Images/pitchAxis.gif)
 
 The above diagram shows the drone from the side. Pitch measures an object's rotation about the lateral axis. Adjusting the pitch will tilt the drone forwards or backwards.
 
 ##### 3. Roll
 
-![](./images/rollAxis.gif)
+![](./Images/rollAxis.gif)
 
 The above diagram shows the drone from behind. Roll measures an object's rotation about the longitudinal axis. Adjusting the roll will tilt the drone left or right.
 
 ### Throttle
 
-![](./images/throttle.gif)
+![](./Images/throttle.gif)
 
 Throttle controls the drone's velocity in the direction of the vertical axis. While the drone is level, adjusting the throttle will move the drone up or down. However, changing the drone's pitch or roll will tilt its vertical axis, causing the throttle to accelerate the drone at an angle.
 
