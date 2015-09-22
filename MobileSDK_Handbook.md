@@ -16,9 +16,9 @@ DJI drones will save photos and videos captured through the camera to the SD car
 
 Accessing the media files in the SD card require that you switch the camera into a playback mode. There are several different playback modes, each allowing you to view or manipulate the files differently. The camera interface allows you to switch between playback modes, and carry out actions specific to each mode.
 
-#### 3. Current State
+#### 3. System State
 
-The current state of the camera is monitored through a set of characteristics. Is the camera overheating? Is the camera connected to a PC? Is it currently taking a single photo, or continuous photos? The answers to these and similar questions are found in the camera interface.
+The system state of the camera is monitored through a set of bool values. Is the camera overheating? Is the camera connected to a PC? Is it currently taking a single photo, or continuous photos? The answers to these and similar questions are found in the camera interface.
 
 #### 4. Settings
 
@@ -40,9 +40,9 @@ The gimbal is the mechanism that keeps the camera steady while the drone moves, 
 
 The main controller can be used to provide fundamental information about the drone, as well as control core functionality.
 
-#### 1. Current State
+#### 1. System State
 
-The main controller system state gives crucial information about the current state of the drone, which will allow you to determine its velocity, location, as well as when and where to appropriately land the drone.
+The main controller's system state gives crucial information about the current state of the drone, which will allow you to determine its velocity, location, as well as when and where to appropriately land the drone.
 
 #### 2. Return To Home
 
