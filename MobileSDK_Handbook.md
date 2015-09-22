@@ -56,7 +56,7 @@ Navigation provides the ability for developers to control the drone through the 
 
 ### Range Extender
 
-The Range Extender is an additional hardware component to be used with the remote controller of the Phantom 2 series. It acts as a wifi repeater to enable communication between the remote controller and the drone.
+The Range Extender is a wireless communication device that operates within the 2.4 GHz frequency band and is used for extending the effective range of communication between a mobile device (Smartphone) and the Phantom 2 series.
 
 ### Image Transmitter
 
