@@ -166,11 +166,9 @@ Some callbacks are also called regularly to monitor changes in the drone's state
 
 ### Phanton 3 Advanced & Professional
 
-
 1. The Phantom 3 Professional supports up to 4K, 30fps video recording, while the Phantom 3 Advanced only supports up to 1080p, 30fps.
 
 2. Supports channel selection and live stream settings, Max Transmission Distance: 2000m.
-3. The Phanton 3 Series cameras have gimbals capable of 3 axis rotation.
 
 ### Inspire 1
 
