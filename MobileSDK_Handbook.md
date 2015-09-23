@@ -1,4 +1,4 @@
-# DJI Mobile SDK Framework Handbook
+# DJI Mobile SDK Framework Guide
 
 ## Purpose of Handbook 
 
@@ -34,7 +34,7 @@ The DJI battery interface includes a set of Smart Battery functions, which can b
 
 ![](./Images/gimbal.png)
 
-The gimbal is the mechanism that keeps the camera steady while the drone moves, absorbing shock from vibrations and sudden movements. The gimbal is also responsible for controlling the direction that the camera is pointing in. The camera interface allows you to control and get information about the gimbal.
+The gimbal is the mechanism that keeps the camera steady while the drone moves, absorbing shock from vibrations and sudden movements. The gimbal is also responsible for controlling the direction that the camera is pointing in. The gimbal interface allows you to control and get information about the gimbal.
 	
 ### Main Controller
 
@@ -46,11 +46,11 @@ The main controller's system state gives crucial information about the current s
 
 #### 2. Return To Home
 
-DJI drones contain a 'Return To Home' functionality, which automatically directs the drone back to home, which is traditionally the point from where the drone has taken off. The main controller includes functions for configuring and using 'Return To Home'.
+DJI drones contain a 'Return To Home' functionality, which automatically directs the drone back to home, which is traditionally the point from where the drone has taken off. If the GPS signal is not good, the home point will be recorded when the GPS signal is strong enough. The main controller includes functions for configuring and using 'Return To Home'.
 
-### Navigation 
+### Intelligent Navigation 
 
-Navigation provides the ability for developers to control the drone through the use of missions. Each type of mission is designed to navigate the drone in some specific and particular manner, such as following an object or orbiting a fixed point. More information of each type of navigation mission is given in the Concepts to Understand section below.
+Intelligent Navigation provides the ability for developers to control the drone through the use of missions. Each type of mission is designed to navigate the drone in some specific and particular manner, such as following an object or orbiting a fixed point. More information of each type of navigation mission is given in the Concepts to Understand section below.
 
 **Note for Android Developers: There currently does not exist a Navigation package in the Android SDK. Missions can be found in the GroundStation package instead.**
 
@@ -70,9 +70,9 @@ Controls the interaction between the Remote Controller and the drone.
 
 Remote controllers of the Inspire 1 can be configured to act as a Master or a Slave. Masters control the entire drone, including the gimbal, while Slaves control only the gimbal. Slaves can only issue commands via a Master.
 
-### Media
+### DJIMedia
 
-A class used to store information about an individual media file in the drone's SD card. Only to be used with the Phantom 2 series.
+A class used to store information about an individual media file in the drone's SD card. It's used with the Phantom 2 series, Phantom 3 Professional, Phantom 3 Advanced and Inspire 1.
 
 ## Concepts to Understand 
 
@@ -104,7 +104,6 @@ The above diagram shows the drone from behind. Roll measures an object's rotatio
 
 Throttle controls the drone's velocity in the direction of the vertical axis. While the drone is level, adjusting the throttle will move the drone up or down. However, changing the drone's pitch or roll will tilt its vertical axis, causing the throttle to accelerate the drone at an angle.
 
-
 ### Types of Navigation Missions
 
 Navigation is the umbrella term used to refer to controlling the drone through one of a variety of Navigation Missions.
@@ -113,7 +112,7 @@ Navigation is the umbrella term used to refer to controlling the drone through o
 
 ![](./Images/followMe.gif)
 
-In a follow me mission, the drone is programmed to track and maintain a constant distant relative to some object, such as a person or a moving vehicle. 
+In a follow me mission, the drone is programmed to track and maintain a constant distant relative to some object, such as a person or a moving vehicle. (Inspire 1 is not supported)
 
 #### 2. Hot Point Mission
 
@@ -123,12 +122,13 @@ In a hot point mission, the drone will repeatedly fly circles of a constant radi
 
 #### 3. IOC (Intelligent Orientation Control) Mission
 
-An IOC mission allows you to control the drone via an external frame of reference, rather than one relative to its own body. In other words, the orientation of the drone is irrelevant to the direction it moves in.
-IOC has two main modes, Course Lock and Home Lock. 
+IOC allows users to lock the orientation of aircraft in different fashions. In other words, the orientation of the drone is irrelevant to the direction it moves in. IOC only works under F mode, and user must toggle the flight mode switch to “F” mode on the RC to activate IOC. 
+
+IOC has two main modes, **Course Lock** and **Home Lock**. 
 
 **Course Lock** allows you to lock the orientation of the drone, while moving the drone relative to an external linear coordinate system.
 
-![](./Images/ioc_courseLock.png)
+![](./Images/ioc_courseLock_en.png)
 
 **Home Lock** moves the drone relative to an external circular coordinate system, with the origin called the Home Point. This means that pushing forward on the remote will move the drone directly away from the Home Point, pushing back will move the drone directly towards it, and pushing left or right will move the drone in a circular path around it.
 
@@ -169,12 +169,13 @@ Some callbacks are also called regularly to monitor changes in the drone's state
 
 1. The Phantom 3 Professional supports up to 4K, 30fps video recording, while the Phantom 3 Advanced only supports up to 1080p, 30fps.
 
-2. Supports channel selection and live stream settings, Transmission Distance: 2000m.
+2. Supports channel selection and live stream settings, Max Transmission Distance: 2000m.
 3. The Phanton 3 Series cameras have gimbals capable of 3 axis rotation.
 
 ### Inspire 1
 
 1. The Inspire 1 is unique in that it lifts its landing gears up out of the camera's field of vision during flight, allowing the camera to rotate along the horizontal plane in any direction without capturing the legs. As a result, the Inspire 1's gimbal has been designed to be able to rotate, from its initial front facing orientation, 320 degrees clockwise or anti-clockwise, giving it a 640 degree range of rotation.
+
 ![](./Images/inspire_landingGearRaised.gif)
 
 2. The Inspire 1 remote controllers have master/slave functionality.
