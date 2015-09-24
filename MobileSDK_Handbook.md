@@ -1,4 +1,4 @@
-# DJI Mobile SDK Framework Guide
+# DJI Mobile SDK Framework Handbook
 
 ## Purpose of Handbook 
 
