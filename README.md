@@ -14,30 +14,52 @@ This handbook provides a high level overview of the different components that ma
 
 DJI drones will save photos and videos captured through the camera to the SD card inserted into the camera. Information about the current state of the SD card can be accessed through the camera interface.
 
-#### 2. Playback 
+#### 2. Playback State and Manager 
 
-Accessing the media files in the SD card require that you switch the camera into a playback mode. There are several different playback modes, each allowing you to view or manipulate the files differently. The camera interface allows you to switch between playback modes, and carry out actions specific to each mode.
+Accessing the media files in the SD card require that you switch the camera into a playback mode. There are several different playback modes, each allowing you to view or manipulate the files differently. The playback manager allows you to switch between playback modes, and carry out actions specific to each mode. Moreover, you can check the playback state like the numbersOfThumbnail, currentSelectedFileIndex, videoDuration, etc.
 
 #### 3. System State
 
-The system state of the camera is monitored through a set of bool values. Is the camera overheating? Is the camera connected to a PC? Is it currently taking a single photo, or continuous photos? The answers to these and similar questions are found in the camera interface.
+The system state of the camera is monitored through a set of bool values. Is the camera overheating? Is the camera in USB mode? Is it currently taking a single photo, or burst photos? The answers to these and similar questions are found in the camera interface.
 
-#### 4. Settings
+#### 4. Camera Parameters
 
-The DJI drones' cameras have a large number of settings to adjust (i.e. shutter speed, ISO, aperture). The camera interface allows you to adjust these settings.
+Camera has various parameter ranges for you to adjust (i.e. shutter speed range, ISO range, aperture range). The camera interface allows you to adjust these parameters.
 
-### Battery
+#### 5. Camera Lens State
 
-#### 1. Smart Battery
+DJI X5 and X5R camera support adjusting camera lens feature. You can check if lens installed, lens type, focusMode, etc from the camera lens state.
 
-The DJI battery interface includes a set of Smart Battery functions, which can be used to ensure that the drone has enough battery left to return home.
+#### 6. Media and Media Manager
+
+Media is a class used to store information about an individual media file in the drone's SD card. It can represents either photo or video. There are various media types like JPEG, MP4, RAWDNG, etc. It contains the necessary parameters, for example fileName, created time and thumbnail. The Media Manager provides functions for you to fetch or delete media list.
  
 ### Gimbal
 
 ![](./Images/gimbal.png)
 
 The gimbal is the mechanism that keeps the camera steady while the drone moves, absorbing shock from vibrations and sudden movements. The gimbal is also responsible for controlling the direction that the camera is pointing in. The gimbal interface allows you to control and get information about the gimbal.
-	
+
+### Battery
+
+The DJI battery interface includes a set of Smart Battery functions, which can be used to get battery state, warning info and self discharge day. It can ensure whether the battery is healthy to use for flying and has enough battery to return home.
+
+### AirLink
+
+AirLink represents the wireless communication either between the RC(Ground System) and aircraft(Air System), or between the DJI WiFi product(Like Phantom 3 Standard, OSMO) and mobile device.
+
+#### 1. Light Bridge Link
+
+  This is used for DJI Light Bridge 2. It provides a set of functions, which can be used to get and set channel, data transfer rate, FPV video quality latency, FPV video band width, etc. Also, you can set video output format like HDMI, SDI and even set PIP(Picture In Picture) position on the screen. Furthermore, it contains delegate methods to get RC signal info, signal strength, video data, etc.
+
+#### 2. WiFi Link
+
+ This is used for DJI Phantom 3 Standard and OSMO. It provides a set of functions, which can be used to get and set WiFi SSID, password, frequency band. Also you can reboot the WiFi and update the WiFi signal quality too.
+
+### Handheld Controller
+
+The handheld controller can be used to control core functionality of DJI Handheld devices, especially for OSMO. You can modify OSMO's mode like sleep mode, awake mode and even shut down the device.
+
 ### Main Controller
 
 The main controller can be used to provide fundamental information about the drone, as well as control core functionality.
@@ -56,10 +78,6 @@ Intelligent Navigation provides the ability for developers to control the drone 
 
 **Note for Android Developers: There currently does not exist a Navigation package in the Android SDK. Missions can be found in the GroundStation package instead.**
 
-### Range Extender
-
-The Range Extender is a wireless communication device that operates within the 2.4 GHz frequency band and is used for extending the effective range of communication between a mobile device (Smartphone) and the Phantom 2 series.
-
 ### Image Transmitter
 
 The Image Transmitter is a physical component found in the remote controllers of the Inspire 1 and Phantom 3 series, used to transmit high quality photo and video files. Older drone models require the purchase of a Light Bridge unit to achieve the same capabilities.
@@ -71,10 +89,6 @@ Controls the interaction between the Remote Controller and the drone.
 #### 1. Slave, Master
 
 Remote controllers of the Inspire 1 can be configured to act as a Master or a Slave. Masters control the entire drone, including the gimbal, while Slaves control only the gimbal. Slaves can only issue commands via a Master.
-
-### DJIMedia
-
-A class used to store information about an individual media file in the drone's SD card. It's used with the Phantom 2 series, Phantom 3 Professional, Phantom 3 Advanced and Inspire 1.
 
 ## Concepts to Understand 
 
@@ -160,13 +174,7 @@ Some callbacks are also called regularly to monitor changes in the drone's state
 
 ## Unique Aircraft Capabilities 
 
-### Phantom 2 Vision & Vision+
-
-1. Phantom 2 Series require range extenders.
-2. The Phantom 2 Series cameras can only adjust their pitch. Yaw and roll are non-adjustable.
-3. The Phantom 2 Series has limited Intelligent Navigation (previously called Ground Station) support, capable of only waypoint missions.
-
-### Phanton 3 Advanced & Professional
+### Phanton 3 Professional & Advanced
 
 1. The Phantom 3 Professional supports up to 4K, 30fps video recording, while the Phantom 3 Advanced only supports up to 1080p, 30fps.
 
@@ -179,7 +187,6 @@ Some callbacks are also called regularly to monitor changes in the drone's state
 ![](./Images/inspire_landingGearRaised.gif)
 
 2. The Inspire 1 remote controllers have master/slave functionality.
-
 3. The Inspire 1 remote controllers have embedded GPS.
 4. The Inspire 1 remote has HDMI output capabilities.
 
@@ -246,10 +253,6 @@ DJI 飞行器有一个 "返航" 功能, 可以自动将飞行器控制回到Home
 智能飞行可以让开发者使用"任务"来控制飞行器进行智能飞行。 每一种"任务"的设计是用来导航飞行器进行某种特定的行为动作，例如跟随物体或者环绕某个点飞行。更多关于智能飞行任务的信息，可以参考“重要概念”部分内容。
 
 **注意: 对于Android开发者, 目前Android SDK中还不存在一个Navigation包。任务可以在GroundStation包中找到。**
-
-### 中继器
-
-中继器为工作于2.4GHz频段的无线通讯设备，用于增加移动设备与PHANTOM 2系列飞行器的有效通信距离。
 
 ### 高清图传
 
@@ -351,13 +354,7 @@ IOC 有两种模式, **航向锁定** 和 **返航锁定**.
 
 ## 独特的飞行器性能 
 
-### Phantom 2 Vision & Vision+
-
-1. Phantom 2 系列需要配合中继器使用
-2. Phantom 2 系列相机只能调整它的pitch值。Yaw和roll值是不能调整的。
-3. Phantom 2 系列支持部分智能飞行功能（之前称为地面站）, 目前只支持航点任务功能。
-
-### Phanton 3 Advanced & Professional
+### Phanton 3 Professional & Advanced
 
 1. Phantom 3 Professional支持4K，30fps的视频录制，而Phantom 3 Advanced只支持1080p, 30fps的视频录制.
 
