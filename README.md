@@ -60,17 +60,21 @@ AirLink represents the wireless communication either between the RC(Ground Syste
 
 The handheld controller can be used to control core functionality of DJI Handheld devices, especially for OSMO. You can modify OSMO's mode like sleep mode, awake mode and even shut down the device.
 
-### Main Controller
+### Flight Controller
 
-The main controller can be used to provide fundamental information about the drone, as well as control core functionality.
+The flight controller can be used to provide fundamental information about the drone, as well as control core functionality.
 
-#### 1. System State
+#### 1. Current State
 
-The main controller's system state gives crucial information about the current state of the drone, which will allow you to determine its velocity, location, as well as when and where to appropriately land the drone.
+The flight controller's current state gives crucial information about the current state data of drone, which will allow you to determine its velocity, location, satellite count, remaining battery state, as well as the no fly zone status.
 
-#### 2. Return To Home
+#### 2. 
 
-DJI drones contain a 'Return To Home' functionality, which automatically directs the drone back to home, which is traditionally the point from where the drone has taken off. If the GPS signal is not good, the home point will be recorded when the GPS signal is strong enough. The main controller includes functions for configuring and using 'Return To Home'.
+#### 3. Return To Home
+
+DJI drones contain a 'Return To Home' functionality, which automatically directs the drone back to home, which is traditionally the point from where the drone has taken off. If the GPS signal is not good, the home point will be recorded when the GPS signal is strong enough. The flight controller includes functions for configuring and using 'Return To Home'.
+
+#### 4. Virtual Stick
 
 ### Intelligent Navigation 
 
@@ -110,7 +114,7 @@ The above diagram shows the drone from the side. Pitch measures an object's rota
 
 #### 3. Roll
 
-![](./Images/rollAxis.gif)
+![](./Images/rollAxisRotate.gif)
 
 The above diagram shows the drone from behind. Roll measures an object's rotation about the longitudinal axis. Adjusting the roll will tilt the drone left or right.
 
@@ -290,7 +294,7 @@ Inspire 1的遥控器可以配置为主机或者从机。主机可以控制整�
 
 #### 3. Roll
 
-![](./Images/rollAxis.gif)
+![](./Images/rollAxisRotate.gif)
 
 上图是飞行器的背面。Roll测量了物体绕着纵向轴旋转的值。调整Roll参数值会让飞行器向左或者向右倾斜。
 
