@@ -78,6 +78,10 @@ DJI aircrafts contain a 'Return To Home' functionality, which automatically dire
 
 The flight controller provides the virtual stick control feature for you to control the aircraft's attitude. You can control the aircraft's yaw, pitch, roll attitude and vertical throttle by sending specific flight control data.
 
+#### 4. IMU
+
+IMU is short for Inerial Measurement Unit, it contains two important sensors like Gyroscope and Accelerator. The flight controller provides features for you to access the status of sensors. Also it allow you to calibrate the IMU and check the calibration status too. Currently, DJI Phantom 3 Series and Inspire 1 Series aircrafts has 1 IMU module, Matrice 100 has 1 IMU module and for Phantom 4, it has 2 IMU modules.
+
 ### Mission Manager
 
 Mission manager provides the ability for developers to control the aircraft through the use of missions. Each type of mission is designed to navigate the aircraft in some specific and particular manner, such as following an object or orbiting a fixed point. More information of each type of navigation mission is given in the Concepts to Understand section below.
@@ -89,6 +93,10 @@ Controls the interaction between the Remote Controller and the aircraft.
 #### 1. Slave, Master
 
 Remote controllers of the Inspire 1 can be configured to act as a Master or a Slave. Masters control the entire aircraft, including the gimbal, while Slaves control only the gimbal. Slaves can only issue commands via a Master.
+
+#### 2. Sport Mode
+
+Sport Mode is only supported by Phantom 4. It helps you to achieve best-in-class flight control. Combined with its magnesium core designed for increased agility, it brings you the ultimate thrill of speed. Maximum speed is increased by 25% while all positioning systems are kept on for a safer, better controlled flight.
 
 ## Concepts to Understand 
 
@@ -166,6 +174,18 @@ Currently, the mission step types are limited, like Waypoint Step, Takeoff Step,
 
 Panorama Mission is only supported on OSMO. During the Panorama Mission, commands are not allowed to be sent to the camera until the mission is finished. Panorama Mission doesn't support the image stitching feature, so the images need to be stitched manually. All the images will be stored on the SD card. 
 
+#### 6. TapFly Mission
+
+TapFly Mission is only supported on Phantom 4. Given a coordinate in the live video stream (which can come from a user tap), the aircraft will calculate and fly toward the coordinate's direction in the real wold. During flight, the aircraft will automatically detect and avoid obstacles.
+
+During the mission, you can use the remote controller's yaw stick to adjust the heading of the aircraft, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
+
+#### 7. ActiveTrack Mission
+
+ActiveTrack Mission is only supported on Phantom 4. It allows an aircraft to track a moving subject using the vision system and without a GPS tracker on the subject.
+
+The main camera is used to track the target, so the gimbal cannot be adjusted during an ActiveTrack mission. During the mission the aircraft can be manually flown with pitch, roll and throttle to move around the subject being tracked.
+
 ### Joystick/Flight Control
 
 Flight control is a direct, low level method of controlling the aircraft. Flight control allows you to direct the aircraft by adjusting its yaw, pitch, roll and throttle.
@@ -176,13 +196,23 @@ Every SDK function you call requires a completion block as a parameter, which wi
 
 ## Unique DJI Product Capabilities 
 
+### Phantom 4
+
+**1.** The Phantom 4 supports **TapFly** and **ActiveTrack** missions, which brings a more autonomous flying experience.
+
+**2.** The Phantom 4 has a new **Sport Mode**, providing best-in-class flight control at speeds 25% faster and than the Phantom 3.
+
+**3.** The Phantom 4 has extended its flight time to 28 minutes flight time. This is a 25% improvement over the Phantom 3.
+
+**4.** The Phantom 4 has 5 cameras. The 4K on-board camera, 2 cameras on the front, and 2 cameras on the bottom. Using these cameras, the Phantom 4 is able to create a 3D model of the world and use that data to navigate by itself, sensing obstacles and achieve collison avoidance.
+
 ### Phantom 3 Professional, Advanced & Standard
 
-1. The Phantom 3 Professional supports up to 4K, 30fps video recording, while the Phantom 3 Advanced only supports up to 1080p, 30fps. Moreover, the Phantom 3 Standard supports up to 2.7K, 30fps video recording.
+**1.** The Phantom 3 Professional supports up to 4K, 30fps video recording, while the Phantom 3 Advanced only supports up to 1080p, 30fps. Moreover, the Phantom 3 Standard supports up to 2.7K, 30fps video recording.
 
-2. The Phantom 3 Professional and Advanced remote controller use USB to communicate with the mobile device, while the Phantom 3 Standard remote controller uses WiFi to communicate.
+**2.** The Phantom 3 Professional and Advanced remote controller use USB to communicate with the mobile device, while the Phantom 3 Standard remote controller uses WiFi to communicate.
 
-3. All support channel selection and live stream settings.
+**3.** All support channel selection and live stream settings.
 
 ### Inspire 1
 
@@ -299,6 +329,10 @@ DJI 飞行器有一个 "返航" 功能, 可以自动将飞行器控制回到Home
 #### 3. 虚拟摇杆
 飞行控制器提供了虚拟摇杆的功能，让你可以控制飞行器的姿态。你可以通过发送特定的飞行控制指令控制飞行器的yaw， pitch和roll轴以及油门参数。
 
+#### 4. IMU
+
+IMU 是惯性测量单元的缩写, 它包含两个重要的传感器模块，陀螺仪和加速计传感器。飞行控制器提供了访问传感器状态的功能。它还提供了接口，让你可以校准IMU模块，并且监听校准的状态。目前，DJI Phantom 3 系列 和 Inspire 1 系列的飞行器 只有一个 IMU 模块, 同时 Matrice 100 飞行器上也只有一个IMU模块, 而Phantom 4 则有 两个 IMU 模块。
+
 ### 智能飞行控制器
 
 智能飞行控制器可以让开发者使用"任务"来控制飞行器进行智能飞行。 每一种"任务"的设计是用来导航飞行器进行某种特定的行为动作，例如跟随物体或者环绕某个点飞行。更多关于智能飞行任务的信息，可以参考“重要概念”部分内容。
@@ -310,6 +344,10 @@ DJI 飞行器有一个 "返航" 功能, 可以自动将飞行器控制回到Home
 #### 1. 主机与从机
 
 Inspire 1系列和Matrice 100机型的遥控器可以配置为主机或者从机。主机可以控制整台飞行器，包括云台，然而从机只能控制云台。从机只能通过主机来发送命令。
+
+#### 2. 运动模式
+
+Phantom 4 的遥控器提供了新的运动模式，给你带来灵敏的操控体验。Phantom 4云台和电池的前后布局使得机身重心中置，电机安装上移使得扭矩响应更灵敏，精确可靠的飞控系统让飞行更安全。
 
 ## 重要概念
 
@@ -382,6 +420,14 @@ IOC 有两种模式, **航向锁定** 和 **返航锁定**.
 #### 5. 全景摄影任务
 全景摄影任务目前只支持OSMO。在任务执行过程中，不允许给相机发送任何指令，直到任务结束时才可以。目前全景摄影任务并不支持照片合成功能，你需要自己进行合成处理。所有的全景照片都会被保存在SD卡中。
 
+#### 6. 指点飞行任务
+
+指点飞行任务目前只支持Phantom 4. 你只需要在应用程序上点击一下，初始化并计算出实时图传上面的一个3维的坐标方向，飞机就会朝那个方向飞行。在飞行过程中，飞机可以自动躲避障碍物。在任务执行期间，你可以用遥控器的yaw摇杆来控制飞机的朝向。控制其它摇杆会取消任务。
+
+#### 7. 视觉追踪任务
+
+视觉追踪任务目前只支持Phantom 4. 它可以使用飞机的前视障碍物感知系统，在物体没有携带GPS追踪器的情况下，让飞机识别和追踪物体飞行。轻推摇杆就能实现环绕，或者拖动跟随对象重新构图。主相机用来追踪物体，所以云台在任务执行过程中是不可控的，在此期间，你还可以使用遥控器来控制飞机围绕追踪物体飞行。
+
 ### 飞行控制
 
 飞行控制可以从底层直接控制飞行器。它允许你通过调整飞行器的的yaw，pitch, roll和throttle值来控制飞行器飞行。
@@ -391,6 +437,16 @@ IOC 有两种模式, **航向锁定** 和 **返航锁定**.
 每一个SDK函数的调用都需要一个completion block作为参数，该回调会在飞行器执行完相应的命令或者动作后触发。对于一些需要花费一段时间完成的特殊动作（如起飞，展开脚架），completion block会在动作完成后被调用。
 
 ## 独特的DJI产品性能 
+
+### Phantom 4
+
+**1.** Phantom 4 支持 **指点飞行** 和 **视觉追踪** 任务, 给你带来更加智能和稳定的飞行体验。
+
+**2.** Phantom 4 新增了一个新的 **运动模式**, 给你带来灵敏的操控体验。它的云台和电池的前后布局使得机身重心中置，电机安装上移使得扭矩响应更灵敏，精确可靠的飞控系统让飞行更安全。飞行速度比Phantom 3提高了25%。
+
+**3.** Phantom 4 续航时间提升至28分钟。全新的机身设计节省更多空间容纳电池，Phantom 4有效飞行时间比Phantom 3 Professional提升了25%。
+
+**4.** Phantom 4 有5个相机. 一个是安装在云台上的4K高清相机, 有两个相机在飞机前方, 另外两个在飞机底部. 使用这些相机，Phantom 4 可以创建出外部环境的3维模型，并用于导航，感知障碍物壁障等功能。
 
 ### Phantom 3 Professional, Advanced & Standard
 
