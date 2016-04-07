@@ -200,7 +200,7 @@ Every SDK function you call requires a completion block as a parameter, which wi
 
 **1.** The Phantom 4 supports **TapFly** and **ActiveTrack** missions, which brings a more autonomous flying experience.
 
-**2.** The Phantom 4 has a new **Sport Mode**, providing best-in-class flight control at speeds 25% faster and than the Phantom 3.
+**2.** The Phantom 4 has a new **Sport Mode**, providing best-in-class flight control at speeds 25% faster than the Phantom 3.
 
 **3.** The Phantom 4 has extended its flight time to 28 minutes flight time. This is a 25% improvement over the Phantom 3.
 
