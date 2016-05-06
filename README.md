@@ -180,11 +180,15 @@ TapFly Mission is only supported on Phantom 4. Given a coordinate in the live vi
 
 During the mission, you can use the remote controller's yaw stick to adjust the heading of the aircraft, which also adjusts the direction of flight to the new yaw. Using any other stick controls will cancel the mission.
 
+![p4TapFlyAni](./Images/p4TapFlyAni.gif)
+
 #### 7. ActiveTrack Mission
 
 ActiveTrack Mission is only supported on Phantom 4. It allows an aircraft to track a moving subject using the vision system and without a GPS tracker on the subject.
 
 The main camera is used to track the target, so the gimbal cannot be adjusted during an ActiveTrack mission. During the mission the aircraft can be manually flown with pitch, roll and throttle to move around the subject being tracked.
+
+![p4ActiveTrackAni](./Images/p4ActiveTrackAni.gif)
 
 ### Joystick/Flight Control
 
