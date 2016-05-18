@@ -2,6 +2,8 @@
 
 <!-- toc -->
 
+[![Analytics](https://ga-beacon.appspot.com/UA-67012528-2/home-page)](https://github.com/igrigorik/ga-beacon)
+
 [English](#purpose-of-handbook) | [中文](#指南目的)
 
 ## Purpose of Handbook 
