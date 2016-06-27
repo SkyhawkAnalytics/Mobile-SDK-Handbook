@@ -1,3 +1,5 @@
+#### This handbook is now deprecated, please refer to Mobile SDK documentations in DJI Developer Website: <https://developer.dji.com/mobile-sdk/documentation/introduction/index.html>.
+
 # DJI Mobile SDK Framework Handbook
 
 <!-- toc -->
